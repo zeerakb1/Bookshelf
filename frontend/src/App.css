@@ -274,7 +274,8 @@ nav {
 /*background Images */
 
 .slide:first-child {
-  background: url("https://i.imgur.com/jJYOdBg.jpg") no-repeat center top/cover;
+  /* background: url("https://i.imgur.com/jJYOdBg.jpg") no-repeat center top/cover; */
+  background: url("./books/book13.jpg") no-repeat center top/cover;
 }
 .slide:nth-child(2) {
   background: url("https://i.imgur.com/7rwaigw.jpg") no-repeat center top/cover;
@@ -378,13 +379,14 @@ nav {
   right: 0;
 }
 .cardscg:first-child {
-  background: url("https://i.imgur.com/ugsxgsY.jpg") no-repeat center top/cover;
+  /* background: url("https://i.imgur.com/ugsxgsY.jpg") no-repeat center top/cover; */
+  background: url("./books/book1.jpg") no-repeat center top/cover;
 }
 .cardscg:nth-child(2) {
-  background: url("https://i.imgur.com/roN4Tqt.jpg") no-repeat center top/cover;
+  background: url("./books/book11.jpg") no-repeat center top/cover;
 }
 .cardscg:nth-child(3) {
-  background: url("./img1.jpg") no-repeat center top/cover;
+  background: url("./books/book7.jpg") no-repeat center top/cover;
 }
 
 /* --- CgDiv ----*/
@@ -805,4 +807,11 @@ img {
 .process-check .btn-process:hover {
   background: #f64749;
   color: rgb(13, 13, 65);
+}
+
+.div_obj {
+  justify-content: center;
+  margin-right: auto;
+  width: 80%;
+  padding: 50px;
 }

@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <div className="footerCmp">
             <footer>
-                <div className="footerCategorie">
+                {/* <div className="footerCategorie">
                     <h1>Categories</h1>
                     <ul>
                         <li><Link to = '/shop/?cg=Women'>Women</Link></li>
@@ -15,9 +15,9 @@ const Footer = () => {
                         <li><Link to = '/shop/?cg=Shoes'>Shoes</Link></li>
                         <li><Link to = '/shop/?cg=Watches'>Watches</Link></li>
                     </ul>
-                </div>
+                </div> */}
 
-                <div className="fooHelp">
+                {/* <div className="fooHelp">
                     <h1>Help</h1>
                     <ul>
                         <li>Tracke Order</li>
@@ -25,9 +25,9 @@ const Footer = () => {
                         <li>Shipping</li>
                         <li>FAQs</li>
                     </ul>
-                </div>
+                </div> */}
 
-                <div className="footerGetInTouch">
+                {/* <div className="footerGetInTouch">
                     <h1>Get in touch</h1>
                     <ul>
                         <p>Any questions? Let us know in store at BP 473 Complexe universitaire Al Qods, Oujda 60000 or call us on (+212) 65964665</p>
@@ -41,9 +41,9 @@ const Footer = () => {
                             <IoLogoYoutube size="25"/>
                         </li>
                     </ul>
-                </div>
+                </div> */}
 
-                <div className="footerNews">
+                {/* <div className="footerNews">
                     <h1>Newsletter</h1>
                     <ul>
                         <li>
@@ -55,9 +55,9 @@ const Footer = () => {
                             <button className="footerBtn">Subscribe</button>
                         </li>
                     </ul>
-                </div>
+                </div> */}
 
-                <div className="creditsIcons">
+                {/* <div className="creditsIcons">
                     <ul>
                         <li><img src="https://i.imgur.com/AHCoUZO.png" className="img1"/></li>
                         <li><img src="https://i.imgur.com/JZRipBg.png" className="img2" /></li>
@@ -65,13 +65,13 @@ const Footer = () => {
                         <li><img src="https://i.imgur.com/IDHC2iv.png" className="img4" /></li>
                     </ul>
                     
-                </div>
+                </div> */}
                 
-                <div className="paragraphFooter"><p>Copyright ©2021 All rights reserved | This template is made with ♡ by Developers of ESTO</p>
+                {/* <div className="paragraphFooter"><p>Copyright ©2021 All rights reserved | This template is made with ♡ by Developers of ESTO</p>
                 <Link to = '' >Abdessamad bourhjoul</Link>
                 <Link to = ''  >Soufian zaam</Link>
                 <Link to = ''  >Souhail ouabou</Link>
-                </div>
+                </div> */}
 
 
 

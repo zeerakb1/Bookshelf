@@ -97,7 +97,8 @@ import Searchnav from './Searchnav';
         }
     
     return (
-       <nav ref = {Nav}  className={`nav ${nav ? 'active' : ''}`} >
+    //    <nav ref = {Nav}  className={`nav ${nav ? 'active' : ''}`} >
+       <nav ref = {Nav}  className={`nav active`} >
            <div className="logo"><Link to =''>EAST CLOTHING</Link></div>
             <ul className="navLinks" ref= {navLinks}>
                 <NavLink to="/" exact  activeClassName='activlink' ><li>Home</li></NavLink>
@@ -112,12 +113,12 @@ import Searchnav from './Searchnav';
             </div>
         <div className = "rightComp" ref = {rightItems}>
         <div  ref={searchRef} className="search">
-        <Route render={({history}) => <Searchnav history ={history}/>}/>
+        {/* <Route render={({history}) => <Searchnav history ={history}/>}/> */}
 
         </div>
 
 
-                { !showSearchIc && <MdSearch className='iconSearch' size='26' onClick={onSeacrhFun}/>  }
+                {/* { !showSearchIc && <MdSearch className='iconSearch' size='26' onClick={onSeacrhFun}/>  } */}
                 <Link to='/cart' > <RiShoppingCart2Line className='iconCart' size='26' />
                 {userInfo && !userInfo.isAdmin && 
                 <div className='dotcart'>

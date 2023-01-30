@@ -5,6 +5,7 @@ import CgDiv from '../components/CgDiv'
 import ProductsC from '../components/ProductsC'
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom'
+import ShopNowBtn from '../components/ShopNowBtn'
 
 
 const Home = () => {
@@ -17,12 +18,13 @@ const Home = () => {
              <div>
                 <Slider/>
                  <div className="cards">
-                         <Cardscg title='Women'/>
-                         <Cardscg title='Men'/>
-                         <Cardscg title='Accessoires'/>                
+                         <Cardscg title='Fiction'/>
+                         <Cardscg title='Non-Fiction'/>
+                         <Cardscg title='All'/>                
                  </div>
                 <CgDiv/>
-                <ProductsC/>
+                {/* <div className='div_obj'> <Link to= '/Shop'> <ShopNowBtn /></Link>  </div> */}
+                {/* <ProductsC/> */}
         </div>
         </>
     )
