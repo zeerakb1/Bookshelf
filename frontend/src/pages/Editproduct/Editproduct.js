@@ -20,7 +20,7 @@ const Editproduct = ({match,history}) => {
     const [Url3,setUrl3] = useState('')
 
     const [Images,setImages] = useState([])
-    const [sizes,setsizes] = useState([])
+
     const [category,setcategory] = useState([])
     const [Menselected,setMenselected] = useState(false)
     const [Womenselected,setWomenselected] = useState(false)
@@ -73,19 +73,14 @@ const Editproduct = ({match,history}) => {
                 setUrl2(product.images[1])
                 setUrl3(product.images[2])
                 setcategory(product.category)
-                setsizes(product.sizes)
+                // setsizes(product.sizes)
                 setcountInStock(product.countInStock)
-                setBagselected(category.includes("Bag"))
+                setBagselected(category.includes("Literary Fiction"))
                 setJacketselected(category.includes("Jacket"))
-                setShoesselected(category.includes("Shoes"))
-                setMenselected(category.includes("Men"))
-                setWomenselected(category.includes("Women"))
-                setWatchesselected(category.includes("Watches"))
-                setSselected(sizes.includes('S'))
-                setLselected(sizes.includes('L'))
-                setMselected(sizes.includes('M'))
-                setXLselected(sizes.includes('XL'))
-
+                setShoesselected(category.includes("Classics"))
+                setMenselected(category.includes("Fantasy"))
+                setWomenselected(category.includes("Adventure"))
+                setWatchesselected(category.includes("Comedy"))
               }
         }
 
@@ -108,25 +103,10 @@ const Editproduct = ({match,history}) => {
             price,
             Images,
             category,
-            sizes,
             countInStock,
             description
 
         }))
-    }
-    const checkboxhandler = (D) =>{
-        let index = sizes.indexOf(D)
-        if(index> -1){ 
-            sizes.splice(index,1)
-            console.log(sizes)
-        }
-        else{
-            sizes.push(D)
-            console.log(sizes)
-
-
-
-        }
     }
     
     const checkboxhandlercg = (D) =>{
@@ -206,11 +186,11 @@ const Editproduct = ({match,history}) => {
                               <Textarea size = 'sm' value={description}  placeholder="Enter price" onChange={(e) => setdescription(e.target.value)} />
                          </InputGroup>
                          <Stack direction="row">
-                      <Checkbox onChange = {() =>{checkboxhandlercg('Men');setMenselected(!Menselected)}} isChecked = {Menselected}>Men </Checkbox>
-                      <Checkbox onChange = {() =>{checkboxhandlercg('Women') ; setWomenselected(!Watchesselected)}} isChecked = {Womenselected}>Women </Checkbox>
-                      <Checkbox onChange = {() =>{checkboxhandlercg('Bag'); setBagselected(!Bagselected)}} isChecked = {Bagselected}>Bag </Checkbox>
-                      <Checkbox onChange = {() =>{checkboxhandlercg('Watches') ; setWatchesselected(!Watchesselected)}} isChecked = {Watchesselected}>Watches </Checkbox>
-                      <Checkbox onChange = {() =>{checkboxhandlercg('Shoes') ; setShoesselected(!Shoesselected)}} isChecked = {Shoesselected}>Shoes </Checkbox>
+                      <Checkbox onChange = {() =>{checkboxhandlercg('Fantasy');setMenselected(!Menselected)}} isChecked = {Menselected}>Fantasy </Checkbox>
+                      <Checkbox onChange = {() =>{checkboxhandlercg('Adventure') ; setWomenselected(!Watchesselected)}} isChecked = {Womenselected}>Adventure </Checkbox>
+                      <Checkbox onChange = {() =>{checkboxhandlercg('Literary Fiction'); setBagselected(!Bagselected)}} isChecked = {Bagselected}>Literary Fiction </Checkbox>
+                      <Checkbox onChange = {() =>{checkboxhandlercg('Comedy') ; setWatchesselected(!Watchesselected)}} isChecked = {Watchesselected}>Comedy </Checkbox>
+                      <Checkbox onChange = {() =>{checkboxhandlercg('Classics') ; setShoesselected(!Shoesselected)}} isChecked = {Shoesselected}>Classics </Checkbox>
                       <Checkbox onChange = {() =>{checkboxhandlercg('Jacket') ; setJacketselected(!Jacketselected)}} isChecked = {Jacketselected}>Jacket </Checkbox>
                       </Stack>
   
@@ -235,15 +215,7 @@ const Editproduct = ({match,history}) => {
                 <div className="input-div pass">
                 Sizes:
 
-           		   <div className="div">
-
-                      <Stack direction="row">
-                      <Checkbox onChange = {() =>{checkboxhandler('S') ; setSselected(!Sselected)}} isChecked = {Sselected}>S </Checkbox>
-                      <Checkbox onChange = {() =>{checkboxhandler('M') ; setMselected(!Mselected)}} isChecked = {Mselected}>M </Checkbox>
-                      <Checkbox onChange = {() =>{checkboxhandler('L') ; setLselected(!Lselected)}} isChecked = {Lselected}>L </Checkbox>
-                      <Checkbox onChange = {() =>{checkboxhandler('XL') ; setXLselected(!XLselected)}} isChecked = {XLselected}>XL </Checkbox>
-                      </Stack>
-            	   </div>
+           		   
             	</div>
                 <div className="input-div pass">
                 Urls for images:

@@ -101,7 +101,7 @@ const createProduct = asyncHandler(async (req, res) => {
         price : 0,
         description : 'sample description',
         user : req.user._id,
-        sizes : [],
+        // sizes : [],
         images : ['https://i.imgur.com/QN2BSdJ.jpg','https://i.imgur.com/QN2BSdJ.jpg','https://i.imgur.com/QN2BSdJ.jpg'],
         category : [],
         countInStock :  0,
@@ -116,7 +116,7 @@ const createProduct = asyncHandler(async (req, res) => {
 // @route PUT /api/products/:id
 // @access Private/Admin
 const updateProduct = asyncHandler(async (req, res) => {
-    const {name,price,description,category,sizes,Images,countInStock} = req.body
+    const {name,price,description,category,Images,countInStock} = req.body
     console.log(name,price,Images)
     const product = await Product.findById(req.params.id)
     if(product){
@@ -124,7 +124,6 @@ const updateProduct = asyncHandler(async (req, res) => {
         product.price = price
         product.description = description
         product.category = category
-        product.sizes = sizes
         product.images = Images
         product.countInStock = countInStock 
     const updatedProduct = await product.save();

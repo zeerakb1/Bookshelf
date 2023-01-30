@@ -78,11 +78,11 @@ const ProductsC = ({match,history}) => {
             <div className = 'filters'> 
             <ul>
                     <Link className = 'lined' to = '?cg'>All</Link>
-                    <Link className = 'lined'  to = '?cg=Men'>Men</Link>
-                    <Link className = 'lined'  to = '?cg=Women'>Women</Link>
-                    <Link className = 'lined'  to = '?cg=Watches'>Watches</Link>
-                    <Link className = 'lined' to = '?cg=Shoes'>Shoes</Link>
-                    <Link to = '?cg=Bag' className = 'lined'>Bag</Link>
+                    <Link className = 'lined'  to = '?cg=Fantasy'>Fantasy</Link>
+                    <Link className = 'lined'  to = '?cg=Adventure'>Adventure</Link>
+                    <Link className = 'lined'  to = '?cg=Comedy'>Comedy</Link>
+                    <Link className = 'lined' to = '?cg=Classics'>Classics</Link>
+                    <Link to = '?cg=Literary Fiction' className = 'lined'>Literary Fiction</Link>
             </ul>
             </div>
         </div>
@@ -97,23 +97,6 @@ const ProductsC = ({match,history}) => {
                 <Link onClick = {()=>(setshowfilter(false))} className = 'lined' to = '?filter=highprice'>Low to high price</Link>
                 <Link onClick = {()=>(setshowfilter(false))} className = 'lined' to = '?filter=lowprice'>high to low price</Link>
             </ul> 
-        </div>
-        <div className = 'pricediv'>
-            <h1> Price</h1>
-            <FormControl id="email">
-                <Stack spacing = {2}>
-                 <FormLabel>From :</FormLabel>
-                 <NumberInput value={From} bg = 'white' onChange = {(e) => setFrom(e)} borderRadius="md" borderTopRadius="md" borderTopLeftRadius="md">
-                 <NumberInputField />
-                </NumberInput>
-                 <FormLabel>To :</FormLabel>
-                <NumberInput value = {To} bg = 'white' onChange = {(e) => setTo(e)} borderRadius="md" borderTopRadius="md" borderTopLeftRadius="md">
-                 <NumberInputField />
-                </NumberInput>
-                <Button onClick = {pricehandler} type="submit" colorScheme="teal">Filter</Button>
-                </Stack>
-            </FormControl>
-
         </div>
  
     </div>

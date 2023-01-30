@@ -99,7 +99,7 @@ import Searchnav from './Searchnav';
     return (
     //    <nav ref = {Nav}  className={`nav ${nav ? 'active' : ''}`} >
        <nav ref = {Nav}  className={`nav active`} >
-           <div className="logo"><Link to =''>EAST CLOTHING</Link></div>
+           <div className="logo"><Link to =''>Bookshelf</Link></div>
             <ul className="navLinks" ref= {navLinks}>
                 <NavLink to="/" exact  activeClassName='activlink' ><li>Home</li></NavLink>
                 <NavLink to="/shop" activeClassName='activlink' ><li>Shop</li></NavLink>

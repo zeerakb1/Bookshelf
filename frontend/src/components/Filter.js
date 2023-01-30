@@ -14,7 +14,7 @@ import {NumberInput,NumberInputField,NumberInputStepper,NumberIncrementStepper,N
                 <li className = 'lined'>high to low price</li>
             </ul> 
         </div>
-        <div className = 'pricediv'>
+        {/* <div className = 'pricediv'>
             <h1> Price</h1>
             <FormControl id="email">
                  <FormLabel>From :</FormLabel>
@@ -36,7 +36,7 @@ import {NumberInput,NumberInputField,NumberInputStepper,NumberIncrementStepper,N
                  </NumberInputStepper>
                 </NumberInput>
             </FormControl>
-        </div>
+        </div> */}
         <div className ='colorsdiv'>
              <h1> Color</h1>
              <div className="col" style = {{backgroundColor : 'black'}}></div>BLACK<br/>

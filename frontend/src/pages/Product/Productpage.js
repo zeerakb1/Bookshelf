@@ -95,7 +95,7 @@ const submithanlder = () =>{
              
             </div>
           </div>
-          <div className = "img-select">
+          {/* <div className = "img-select">
             <div className = "img-item">
               <a href = "#" data-id = "1">
                 <Image  objectFit="cover" boxSize = '200px' src = {product.images[0]} alt = "shoe image"/>
@@ -117,7 +117,7 @@ const submithanlder = () =>{
               </a>
             </div>
         
-          </div>
+          </div> */}
         </div>
  
         <div className = "product-content">
@@ -136,14 +136,6 @@ const submithanlder = () =>{
             <h2>about this item: </h2>
             <p>{product.description}</p>
            <div>
-           <ul>
-             <li>Size</li> <Select  className='select-product' placeholder="Choose an option">
-               {product.sizes.map(size =>(
-                                    <option value={size}>{size}</option>
-
-               ))}
-                                </Select>
-           </ul>
            </div>
             <ul>
               <li>Status: <span>{product.countInStock > 0 ? 'ìn stock' :  'Out Of Stock'}</span></li>
@@ -171,19 +163,6 @@ const submithanlder = () =>{
 
                <div className = "purchase-info">
             <Button onClick={addToCartHandler} type = "button"  className = "btn-shop" disabled={product.countInStock === 0}> <AiFillShop size='24' />Add to Cart </Button>
-          </div>
-
-          <div className = "social-links">
-            <p>Share On: </p>
-            <Link className = 'social' to = "#">
-              <i> <IoLogoFacebook size='20'/></i>
-            </Link>
-            <Link className = 'social' href = "#">
-              <i><AiFillTwitterCircle size='20'/></i>
-            </Link>
-            <Link  className = 'social' href = "#">
-              <i><AiFillInstagram size='20'/> </i>
-            </Link>
           </div>
         </div>
       </div>

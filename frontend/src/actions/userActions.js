@@ -171,7 +171,7 @@ export const ListUsers = () => async(dispatch, getState) => {
             }
         }
 
-        const {data} = await axios.get(`/api/users`, config)
+        const {data} = await axios.get(`http://localhost:3000/api/users`, config)
         dispatch({
             type: USER_LIST_SUCCESS,
             payload: data
