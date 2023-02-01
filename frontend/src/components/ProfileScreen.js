@@ -127,7 +127,7 @@ const ProfileScreen = ({location, history}) => {
       <div className="containera">
               
 		<div className="imga">
-			<Image src={addUs} />
+			{/* <Image src={addUs} /> */}
 		</div>
     <div className = 'rightinfos'>
     <div className = 'showbtn' onClick = {()=>setShowOrders(!ShowOrders)}>{ShowOrders ? 'Show my infos' :'Show my orders'} <IoIosArrowDown /></div>
