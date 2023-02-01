@@ -25,7 +25,7 @@ const Checkout = ({history}) => {
     const [carddetails, setcarddetails] = useState(true)
     const handleorder = (e)=>{
         e.preventDefault()
-        history.push('/placeorder')
+        // history.push('/placeorder')
          dispatch(saveAddressshipping({ address, city, postalCode, country}))
          dispatch(savepaymentmethod(Payment))
         //  history.push('/placeorder')
@@ -36,9 +36,10 @@ const Checkout = ({history}) => {
         cart.cartItems.map((singleItem, index) => (
             dispatch(removeFromCart(singleItem.product))
         ))
-        dispatch(removeFromCart(cart.cartItems[0].product))
+        // dispatch(removeFromCart(cart.cartItems[0].product))
         // history.push('/placeorder')
     }
+    
     return (
         <div>
             <Helmet>

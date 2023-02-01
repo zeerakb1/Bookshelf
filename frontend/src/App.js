@@ -1,6 +1,6 @@
 import Nav from './components/Nav'
 import Home from './pages/Home'
-import About from './pages/About/About'
+// import About from './pages/About/About'
 import Shop from './pages/Shop'
 import Contactus from './pages/Contactus/Contactus'
 import Productpage from './pages/Product/Productpage'
@@ -49,7 +49,7 @@ import Orders from './pages/Orders/Orders'
                  <Nav/>
                  <Switch>              
                  <Route path="/" exact component={Home}/>
-                 <Route path="/about" component={About}/>
+                 {/* <Route path="/about" component={About}/> */}
                  <Route path="/shop" component={Shop}/>
                  <Route path="/contactus" component={Contactus}/>
                  <Route path="/product/:id" component={Productpage}/>
