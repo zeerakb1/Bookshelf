@@ -11,6 +11,7 @@ import { getOrderDetails, payOrder,deliverOrder } from "../../actions/orderActio
 import './Order.css'
 import { ORDER_PAY_RESET,ORDER_DELIVER_RESET } from '../../constants/orderConstants';
 import { Button } from '@chakra-ui/button';
+import { removeFromCart } from '../../actions/cartActions';
 const Order = ({match,history}) => {
     const [sdkReady, setsdkReady] = useState(false)
     const orderId = match.params.id
@@ -70,6 +71,11 @@ const Order = ({match,history}) => {
     const deliverhandler = () =>{
         dispatch(deliverOrder(order))
     }
+    const gotohome = () => {
+        history.push("/shop")
+        // removeFromCart()
+    }
+
     return loading || loadingDeliver ? <div className='loading-product'>
                         <HashLoader   color={"#1e1e2c"}  loading={loading || loadingDeliver} size={50} />
                      </div> : error ? <h1>{error}</h1> :
@@ -92,7 +98,7 @@ const Order = ({match,history}) => {
                     <p>
                         <strong>Address: </strong>
                         {order.shippingAddress.address}, {order.shippingAddress.city}, {order.shippingAddress.cp}, {order.shippingAddress.country}
-                        {order.isDelivered ? <div className = 'paid'>Delivered at {order.deliveredAt}</div> : <div className = 'notpaid'>NOT Delivered YET</div>}
+                        {order.isDelivered ? <div className = 'paid'>Delivered at {order.deliveredAt}</div> : <div className = 'notpaid'>Your order will be delivered soon!</div>}
 
                     </p>
                 </div>
@@ -102,7 +108,7 @@ const Order = ({match,history}) => {
                     <p>
                         <strong>Method: </strong>
                         {order.paymentMethod}
-                        {order.isPaid ? <div className = 'paid'>PAID AT {order.paidAt}</div> : <div className = 'notpaid'>NOT PAID YET</div>}
+                        {order.isPaid ? <div className = 'paid'>PAID AT {order.paidAt}</div> : <div className = 'notpaid'>Payment recieved successfully</div>}
                     </p>
                 </div>
                       <hr className= 'hr' />
@@ -139,6 +145,11 @@ const Order = ({match,history}) => {
                             
                         </div>
                         <div className = 'bottominfos'>
+                        <Button  marginTop="20px" height="40px" width = "400px"
+                            // size = "lg" onClick = {deliverhandler} leftIcon = {<IoMdDoneAll size = '16' />} colorScheme ='blue' size="xs" >Continue Shopping</Button>
+                            size = "lg" onClick = {gotohome} leftIcon = {<IoMdDoneAll size = '16' />} colorScheme ='blue' size="xs" >Continue Shopping</Button>
+                        </div>
+                        {/* <div className = 'bottominfos'>
                         <h1 className = 'orderid'>Order : {order._id}</h1>
                         {!order.isPaid && (
                             <>
@@ -158,7 +169,7 @@ const Order = ({match,history}) => {
                             size = "lg" onClick = {deliverhandler} leftIcon = {<IoMdDoneAll size = '16' />} colorScheme ='blue' size="xs" >DELIVERED</Button>
                         )}
 
-                        </div>
+                        </div> */}
 
                     
                     </div>

@@ -32,7 +32,8 @@ const productSchema = mongoose.Schema({
     },
     category:[{
         type : String,
-        required: true
+        required: true,
+        default: "All"
     }],
     reviews: [reviewSchema],
     rating:{

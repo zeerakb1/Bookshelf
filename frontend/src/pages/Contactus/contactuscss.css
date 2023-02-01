@@ -23,19 +23,20 @@
 }
 
 .imageContact {
-  height: 240px;
+  height: 100%;
   width: 100%;
   filter: grayscale(40%);
 }
 
 .card-contact {
+  justify-content: center;
   display: flex;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border: 1px solid rgba(179, 179, 179, 0.664);
   margin: 0 5%;
   margin-top: 80px;
-  min-height: 600px;
+  min-height: 250px;
 }
 
 .card-contact:hover {
@@ -43,8 +44,8 @@
 }
 .sendMsg {
   display: block;
-  border-right: 1px solid rgba(179, 179, 179, 0.664);
-  padding: 30px 60px;
+  /* border-right: 1px solid rgba(179, 179, 179, 0.664); */
+  padding: 10px 10px;
   width: 50%;
 }
 .envolope {

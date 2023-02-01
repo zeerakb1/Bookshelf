@@ -3,14 +3,21 @@ import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import { CreateOrder } from "../../actions/orderActions";
 import { Helmet } from 'react-helmet';
+// import { addToCart,removeFromCart } from '../actions/cartActions';
+import { removeFromCart } from '../../actions/cartActions';
 
 import './Placeorder.css'
 const Placeorder = ({history}) => {
+    // const {id} = match.params;
     const dispatch = useDispatch();
     const cart = useSelector(state => state.cart)
     const addDecimals = (num) =>{
         return (Math.round(num * 100) / 100).toFixed(2)
     }
+    // const removeFromCartHandler  = (id) =>{
+    //     dispatch(removeFromCart(id))
+    //     // cart.orderItems.product
+    // }
 
     cart.itemsPrice = addDecimals(cart.cartItems.reduce((acc,item) => acc + item.price * item.qty, 0))
 
@@ -20,20 +27,26 @@ const Placeorder = ({history}) => {
     const orderCreate = useSelector(state => state.orderCreate)
     const {order,success,error} = orderCreate
     const Placeorderhanlder = ()=>{
+        console.log("product", cart)
+        console.log("p ", cart.cartItems)
         dispatch(CreateOrder({
+            
             orderItems : cart.cartItems,
             shippingAddress : cart.shippingAddress,
-            paymentMethod: cart.paymentMethod,
+            // paymentMethod: cart.paymentMethod,
             itemsPrice : cart.itemsPrice,
             shippingPrice : cart.shippingPrice,
             taxPrice : cart.taxPrice,
             totalPrice : cart.totalPrice,
-
         }))
+        cart.cartItems.map((singleItem, index) => (
+            dispatch(removeFromCart(singleItem.product))
+        ))
     }
     useEffect(() => {
         if(success){
             console.log(order._id)
+            // history.push(`/order/${order._id}/${cart.cartItems[]}`)
             history.push(`/order/${order._id}`)
         }
         return () => {
@@ -92,6 +105,7 @@ const Placeorder = ({history}) => {
                                 <div className="div-placeorder-btn"> 
                                     <button className="placeorder-btn" onClick = {Placeorderhanlder}>Place Order</button>
                                     {error && error}
+                                    {/* {<p>Your order has been shipped</p>} */}
                                 </div>
                               </div>
 

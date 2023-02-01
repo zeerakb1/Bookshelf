@@ -4,12 +4,14 @@ import { Input, Stack, Select, Image, Link } from "@chakra-ui/react"
 import {RiShoppingCart2Line} from "react-icons/all"
 import './checkout.css'
 import { saveAddressshipping,savepaymentmethod } from '../../actions/cartActions'
+import { removeFromCart } from '../../actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux'
 
 const Checkout = ({history}) => {
     const cart = useSelector((state) => state.cart)
 
     const { shippingAddress } = cart
+    // const id = shippingAddress.product.id
 
 
 
@@ -23,10 +25,19 @@ const Checkout = ({history}) => {
     const [carddetails, setcarddetails] = useState(true)
     const handleorder = (e)=>{
         e.preventDefault()
+        history.push('/placeorder')
          dispatch(saveAddressshipping({ address, city, postalCode, country}))
          dispatch(savepaymentmethod(Payment))
-         history.push('/placeorder')
+        //  history.push('/placeorder')
 
+    }
+
+    const removeProducts = () => {
+        cart.cartItems.map((singleItem, index) => (
+            dispatch(removeFromCart(singleItem.product))
+        ))
+        dispatch(removeFromCart(cart.cartItems[0].product))
+        // history.push('/placeorder')
     }
     return (
         <div>
@@ -68,7 +79,7 @@ const Checkout = ({history}) => {
                     <div className="payment-check">
                         <h1>Payment Method</h1>
                        
-                        <input onChange = {(e)=> {setcarddetails(true) ; setPayment('card')}} checked = {carddetails}  type="radio" name="payment" id="card"/><label for="card" className="this-label">Credit Card</label>
+                        {/* <input onChange = {(e)=> {setcarddetails(true) ; setPayment('card')}} checked = {carddetails}  type="radio" name="payment" id="card"/><label for="card" className="this-label">Credit Card</label>
                         <div className="accept-cards-imgs">
                             <Image src="https://i.imgur.com/AHCoUZO.png" alt="visa"/>
                             <Image src="https://i.imgur.com/l8OAGyo.png" alt="master"/>
@@ -88,12 +99,12 @@ const Checkout = ({history}) => {
                             <div><label for="cvv-check" className="this-label">Cvv</label>
                             <Input variant="flushed"  placeholder="512" id="cvv-check"/></div>
                         </div>
-                        </div>
+                        </div> */}
 
                         <input onChange = {(e)=> {setcarddetails(false) ; setPayment('paypal')}} type="radio" name="payment" id="paypal"/><label for="paypal" className="this-label"> Paypal</label>
                         <Image src= 'https://i.imgur.com/W5vSLzb.png' alt="paypal" width="120px" height="40px"/>
                         <div class="confirm">
-                          <input type="submit" className="confirm-check" value="Place to order"/>
+                          <input type="submit" className="confirm-check" value="Place to order" onClick={removeProducts}/>
                         </div>
                     </div>
                     </form>

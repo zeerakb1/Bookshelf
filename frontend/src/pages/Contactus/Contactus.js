@@ -45,7 +45,7 @@ const Contactus = () => {
                     </div>
 
             </div>
-            <div className="showAdrss">
+            {/* <div className="showAdrss">
                 <div className="box">
                     <div className="iconCtn"><GiPositionMarker opacity="0.8"/></div>
                     <div className="adressCtn">
@@ -70,7 +70,7 @@ const Contactus = () => {
                         <p className="infoCtn">Store@gmail.com</p>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
 </div>
     )
