@@ -18,8 +18,8 @@ const Home = () => {
              <div>
                 <Slider/>
                  <div className="cards">
-                         <Cardscg title='Fiction'/>
-                         <Cardscg title='Non-Fiction'/>
+                         <Cardscg title='Comedy'/>
+                         <Cardscg title='Classics'/>
                          <Cardscg title='All'/>                
                  </div>
                 <CgDiv/>
