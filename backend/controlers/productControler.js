@@ -124,7 +124,6 @@ const updateProduct = asyncHandler(async (req, res) => {
         product.price = price
         product.description = description
         product.category = category
-        product.images = Images
         product.countInStock = countInStock 
     const updatedProduct = await product.save();
     console.log(updatedProduct)

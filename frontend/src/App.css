@@ -245,11 +245,13 @@ nav {
   opacity: 1;
   transform: translateY(870px);
   transition: all 0.7s ease-in-out 0.3s;
+  color: white;
 }
 .slide.current .subtitleslider {
   opacity: 1;
   transform: translateY(970px);
   transition: all 0.7s ease-in-out 0.3s;
+  color: white;
 }
 .next {
   position: absolute;
@@ -275,7 +277,7 @@ nav {
 
 .slide:first-child {
   /* background: url("https://i.imgur.com/jJYOdBg.jpg") no-repeat center top/cover; */
-  background: url("./books/book13.jpg") no-repeat center top/cover;
+  background: url("./books/main-book.jpg") no-repeat center top/cover;
 }
 .slide:nth-child(2) {
   background: url("https://i.imgur.com/7rwaigw.jpg") no-repeat center top/cover;

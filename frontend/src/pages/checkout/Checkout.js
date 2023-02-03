@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import { Helmet } from 'react-helmet';
 import { Input, Stack, Select, Image, Link } from "@chakra-ui/react"
 import {RiShoppingCart2Line} from "react-icons/all"
@@ -6,10 +7,26 @@ import './checkout.css'
 import { saveAddressshipping,savepaymentmethod } from '../../actions/cartActions'
 import { removeFromCart } from '../../actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux'
+import { CreateOrder } from "../../actions/orderActions";
+import { UpdateProduct } from '../../actions/productActions';
 
 const Checkout = ({history}) => {
     const cart = useSelector((state) => state.cart)
+    const addDecimals = (num) =>{
+        return (Math.round(num * 100) / 100).toFixed(2)
+    }
+    // const removeFromCartHandler  = (id) =>{
+    //     dispatch(removeFromCart(id))
+    //     // cart.orderItems.product
+    // }
 
+    cart.itemsPrice = addDecimals(cart.cartItems.reduce((acc,item) => acc + item.price * item.qty, 0))
+
+    cart.shippingPrice = addDecimals(cart.itemsPrice > 100 ? 0 : 100)
+    cart.taxPrice = addDecimals(Number((0.15 * cart.itemsPrice).toFixed(2)))
+    cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.shippingPrice) + Number(cart.taxPrice)).toFixed(2)
+    const orderCreate = useSelector(state => state.orderCreate)
+    const {order,success,error} = orderCreate
     const { shippingAddress } = cart
     // const id = shippingAddress.product.id
 
@@ -25,20 +42,46 @@ const Checkout = ({history}) => {
     const [carddetails, setcarddetails] = useState(true)
     const handleorder = (e)=>{
         e.preventDefault()
-        history.push('/placeorder')
+        // history.push('/placeorder')
          dispatch(saveAddressshipping({ address, city, postalCode, country}))
          dispatch(savepaymentmethod(Payment))
         //  history.push('/placeorder')
 
     }
 
-    const removeProducts = () => {
-        cart.cartItems.map((singleItem, index) => (
+    
+    const removeProducts = async () => {
+        console.log("");
+        dispatch(CreateOrder({
+            
+            orderItems : cart.cartItems,
+            shippingAddress : cart.shippingAddress,
+            // paymentMethod: cart.paymentMethod,
+            itemsPrice : cart.itemsPrice,
+            shippingPrice : cart.shippingPrice,
+            taxPrice : cart.taxPrice,
+            totalPrice : cart.totalPrice,
+        }))
+        
+
+        cart.cartItems.map(async (singleItem, index) => {
             dispatch(removeFromCart(singleItem.product))
-        ))
-        dispatch(removeFromCart(cart.cartItems[0].product))
-        // history.push('/placeorder')
+            let {data} = await axios.get(`/api/products/${singleItem.product}`)
+            console.log("hehe");
+            console.log(singleItem);
+            console.log("hoho");
+            data["countInStock"]  = data["countInStock"] -  singleItem["qty"];
+
+            // console.log(data);
+            dispatch(UpdateProduct(
+              data
+            ))
+    })
+
+        // dispatch(removeFromCart(cart.cartItems[0].product))
+        history.push('/')
     }
+    
     return (
         <div>
             <Helmet>

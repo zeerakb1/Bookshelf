@@ -57,9 +57,11 @@ const ProfileScreen = ({location, history}) => {
 
   const orderMylist = useSelector(state => state.orderMylist)
 
+
   const { loading:loadingOrders,error:errorOrders,orders } = orderMylist
 
   useEffect(() => {
+    console.log(orderMylist);
     if(!userInfo) {
       history.push('/login')
     }else{
@@ -127,7 +129,7 @@ const ProfileScreen = ({location, history}) => {
       <div className="containera">
               
 		<div className="imga">
-			<Image src={addUs} />
+			{/* <Image src={addUs} /> */}
 		</div>
     <div className = 'rightinfos'>
     <div className = 'showbtn' onClick = {()=>setShowOrders(!ShowOrders)}>{ShowOrders ? 'Show my infos' :'Show my orders'} <IoIosArrowDown /></div>
@@ -228,7 +230,7 @@ const ProfileScreen = ({location, history}) => {
                           <Td>{order._id}</Td>
                           <Td>{order.createdAt.substring(0,10)}</Td>
                           <Td>{order.totalPrice}</Td>
-                          <Td>{order.isPaid ? order.paidAt.substring(0,10) : 'Not Paid Yet'}</Td>
+                          <Td>{"Paid"}</Td>
                           <Td>{order.isDelivered ? order.deliveredAt.substring(0,10) : 'Not Yet'}</Td>
                           <Td>
                             <Link to ={ `/order/${order._id}`}>
