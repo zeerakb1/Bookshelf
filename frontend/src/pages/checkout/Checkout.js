@@ -48,6 +48,7 @@ const Checkout = ({history}) => {
     }
     
     const removeProducts = () => {
+        console.log("");
         dispatch(CreateOrder({
             
             orderItems : cart.cartItems,

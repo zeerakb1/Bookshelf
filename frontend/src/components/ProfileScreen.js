@@ -57,9 +57,11 @@ const ProfileScreen = ({location, history}) => {
 
   const orderMylist = useSelector(state => state.orderMylist)
 
+
   const { loading:loadingOrders,error:errorOrders,orders } = orderMylist
 
   useEffect(() => {
+    console.log(orderMylist);
     if(!userInfo) {
       history.push('/login')
     }else{
