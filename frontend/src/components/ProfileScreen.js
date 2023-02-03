@@ -230,7 +230,7 @@ const ProfileScreen = ({location, history}) => {
                           <Td>{order._id}</Td>
                           <Td>{order.createdAt.substring(0,10)}</Td>
                           <Td>{order.totalPrice}</Td>
-                          <Td>{order.isPaid ? order.paidAt.substring(0,10) : 'Not Paid Yet'}</Td>
+                          <Td>{"Paid"}</Td>
                           <Td>{order.isDelivered ? order.deliveredAt.substring(0,10) : 'Not Yet'}</Td>
                           <Td>
                             <Link to ={ `/order/${order._id}`}>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import { Helmet } from 'react-helmet';
 import { Input, Stack, Select, Image, Link } from "@chakra-ui/react"
 import {RiShoppingCart2Line} from "react-icons/all"
@@ -7,6 +8,7 @@ import { saveAddressshipping,savepaymentmethod } from '../../actions/cartActions
 import { removeFromCart } from '../../actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux'
 import { CreateOrder } from "../../actions/orderActions";
+import { UpdateProduct } from '../../actions/productActions';
 
 const Checkout = ({history}) => {
     const cart = useSelector((state) => state.cart)
@@ -46,8 +48,9 @@ const Checkout = ({history}) => {
         //  history.push('/placeorder')
 
     }
+
     
-    const removeProducts = () => {
+    const removeProducts = async () => {
         console.log("");
         dispatch(CreateOrder({
             
@@ -59,9 +62,21 @@ const Checkout = ({history}) => {
             taxPrice : cart.taxPrice,
             totalPrice : cart.totalPrice,
         }))
-        cart.cartItems.map((singleItem, index) => (
+        
+
+        cart.cartItems.map(async (singleItem, index) => {
             dispatch(removeFromCart(singleItem.product))
-        ))
+            let {data} = await axios.get(`/api/products/${singleItem.product}`)
+            console.log("hehe");
+            console.log(singleItem);
+            console.log("hoho");
+            data["countInStock"]  = data["countInStock"] -  singleItem["qty"];
+
+            // console.log(data);
+            dispatch(UpdateProduct(
+              data
+            ))
+    })
 
         // dispatch(removeFromCart(cart.cartItems[0].product))
         history.push('/')
