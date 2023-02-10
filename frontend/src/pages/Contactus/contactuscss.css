@@ -20,13 +20,14 @@
   top: 30%;
   font-size: 50px;
   font-weight: 1000;
+  color: white;
 }
 
 .imageContact {
-  /* height: 50%; */
-  height: auto;
+  /* height: 100%; */
+  /* height: auto; */
   /* width: 100%; */
-  width: auto;
+  /* width: auto; */
   filter: grayscale(40%);
 }
 

@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import { Image } from "@chakra-ui/react"
 import { Helmet } from 'react-helmet';
 
-import cover from './cover.jpg'
 import { Input,InputGroup, InputLeftElement, Textarea,Button  } from "@chakra-ui/react"
-import {BsEnvelope, GiPositionMarker, HiOutlinePhone} from 'react-icons/all'
+import {BsEnvelope} from 'react-icons/all'
 import './contactuscss.css'
 const Contactus = () => {
     const [email, setemail] = useState('')
@@ -20,9 +19,9 @@ const Contactus = () => {
                 <title>Contact</title>
             </Helmet>
         <div className="headerContact">
-            <Image className="imageContact" src='https://img.jakpost.net/c/2019/03/02/2019_03_02_66706_1551461528._large.jpg' alt="contactImage" objectFit="cover"/>
+            <Image className="imageContact" src='https://img.jakpost.net/c/2019/03/02/2019_03_02_66706_1551461528._large.jpg' alt="contactImage" width="100rem" height="25rem" objectFit="cover"/>
             <div className="text">
-                <h2>Contact</h2>  
+                <h2>Contact Us</h2>  
             </div>
               
         </div>
@@ -45,32 +44,6 @@ const Contactus = () => {
                     </div>
 
             </div>
-            {/* <div className="showAdrss">
-                <div className="box">
-                    <div className="iconCtn"><GiPositionMarker opacity="0.8"/></div>
-                    <div className="adressCtn">
-
-                        <h3> Address</h3>
-                        <p>Coza Store Center 8th floor, 379 Hudson St, New York, NY 10018 US</p>
-                    </div>
-                </div>
-                    <div className="box">
-                    <div className="iconCtn"><HiOutlinePhone opacity="0.8"/></div>
-                    <div className="adressCtn">
-
-                        <h3>Lets Talk</h3>
-                        <p className="infoCtn">0657964665</p>
-                    </div>
-                </div>
-                <div className="box">
-                    <div className="iconCtn"><BsEnvelope opacity="0.8"/></div>
-                    <div className="adressCtn">
-
-                        <h3>Sale Support</h3>
-                        <p className="infoCtn">Store@gmail.com</p>
-                    </div>
-                </div>
-            </div> */}
         </div>
 </div>
     )

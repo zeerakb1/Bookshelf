@@ -677,9 +677,9 @@ nav {
   .navLinks li {
     opacity: 0;
   }
-  .slide:first-child {
+  /* .slide:first-child {
     background: url("product2media.png") no-repeat center top/cover;
-  }
+  } */
   .slide:nth-child(2) {
     /* position: absolute; */
     background-position: right;

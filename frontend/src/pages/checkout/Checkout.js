@@ -72,7 +72,7 @@ const Checkout = ({history}) => {
             console.log("hoho");
             data["countInStock"]  = data["countInStock"] -  singleItem["qty"];
 
-            // console.log(data);
+            console.log(data);
             dispatch(UpdateProduct(
               data
             ))
